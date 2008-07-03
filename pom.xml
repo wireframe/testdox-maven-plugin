@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.codecrate.maven.plugins</groupId>
+  <artifactId>testdox-maven-plugin</artifactId>
+  <name>TestDox Maven Report Plugin</name>
+  <packaging>maven-plugin</packaging>
+  <version>1.0.1</version>
+  <dependencies>
+    <dependency>
+      <groupId>qdox</groupId>
+      <artifactId>qdox</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-api</artifactId>
+      <version>2.0.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-impl</artifactId>
+      <version>2.0.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-core</artifactId>
+      <version>1.0-alpha-8</version>
+    </dependency>
+  </dependencies>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>com.codecrate.maven.plugins</groupId>
+        <artifactId>testdox-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+  
+<distributionManagement>
+  <!-- use the following if you're not using a snapshot version. -->
+  <repository>
+    <id>repo</id>
+    <name>Repository Name</name>
+    <url>scp://host/path/to/repo</url>
+  </repository>
+  <!-- use the following if you ARE using a snapshot version. -->
+  <snapshotRepository>
+    <id>codecrate-ftp-repo</id>
+    <name>Codecrate Repository</name>
+    <url>ftp://www.codecrate.com/maven</url>
+  </snapshotRepository>
+</distributionManagement>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-ftp</artifactId>
+         <version>1.0-alpha-6</version>
+      </extension>
+    </extensions>
+  </build>
+</project>
+
